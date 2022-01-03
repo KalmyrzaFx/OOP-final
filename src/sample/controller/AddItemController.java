@@ -1,7 +1,7 @@
 package sample.controller;
 
 
-import animation.Shaker;
+import sample.animation.Shaker;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

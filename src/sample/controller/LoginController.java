@@ -1,6 +1,6 @@
 package sample.controller;
 
-import animation.Shaker;
+import sample.animation.Shaker;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
