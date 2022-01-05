@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootAnchorPane" prefHeight="90.0" prefWidth="360.0" style="-fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <ImageView fx:id="iconImageView" fitHeight="44.0" fitWidth="43.0" layoutX="8.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/tasks.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="taskLabel" layoutX="61.0" layoutY="2.0" prefHeight="25.0" prefWidth="176.0" style="-fx-background-color: #3b3b3b;" text="Task" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionLabel" layoutX="61.0" layoutY="31.0" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: #fff;" text="Description">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLabel" layoutX="172.0" layoutY="68.0" prefHeight="17.0" prefWidth="159.0" text="Date Created" textFill="#1ca41a">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="deleteButton" fitHeight="25.0" fitWidth="27.0" layoutX="334.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/delete.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

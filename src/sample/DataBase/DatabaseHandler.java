@@ -45,6 +45,28 @@ public class DatabaseHandler extends Configs {
         }
     }
 
+    public ResultSet getTaskByUser(int userId) {
+        ResultSet resultTasks = null;
+
+        String query = "SELECT * FROM " + Const.TASKS_TABLE + " WHERE "
+                + Const.STUDENT_ID + "=?";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(query);
+
+            preparedStatement.setInt(1, userId);
+
+            resultTasks = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        return resultTasks;
+    }
+
     public ResultSet getUser(User user) {
         ResultSet resultSet = null;
         if (!user.getUserName().equals("") || !user.getPassword().equals("")) {

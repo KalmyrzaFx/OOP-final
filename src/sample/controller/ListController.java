@@ -9,14 +9,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import sample.model.Task;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class ListController {
 
     @FXML
-    private ListView<String> listTask;
+    private ListView<Task> listTask;
 
     @FXML
     private TextField listTaskField;
@@ -26,49 +27,32 @@ public class ListController {
 
     @FXML
     private Button listSaveTaskButton;
-    ObservableList<String> listview = FXCollections.observableArrayList(
-            "John",
-            "Paolo",
-            "Bond",
-            "Java",
-            "Android"
-    );
+
+    private  ObservableList<Task> tasks;
 
     @FXML
     void initialize() {
 
-        listTask.setItems(listview);
+        System.out.println("User Id from cell controller: " + AddItemController.userId);
 
-        listTask.setCellFactory(param -> new Cell());
-    }
+        Task myTask = new Task();
+        myTask.setTask("Clean Car");
+        myTask.setDescription("Have to clean");
+        myTask.setDatecreated(Timestamp.valueOf(LocalDateTime.now()));
 
-    static class Cell extends ListCell<String> {
-       HBox hBox = new HBox();
-       Button helloButton = new Button("Hello");
-       Label task = new Label();
-
-       Pane pane = new Pane();
-
-       Image icon = new Image("/sample/assets/addIcon.png");
-       ImageView iconImg = new ImageView(icon);
-
-        public Cell() {
-            super();
-
-            hBox.getChildren().addAll(iconImg, task, helloButton);
-            hBox.setHgrow(pane, Priority.ALWAYS);
+        Task myTask2 = new Task();
+        myTask2.setTask("Clean House");
+        myTask2.setDescription("Have to clean it too");
+        myTask2.setDatecreated(Timestamp.valueOf(LocalDateTime.now()));
 
 
-        }
-        public void updateItem(String taskName, boolean empty) {
-            super.updateItem(taskName, empty);
-            setText(null);
-            setGraphic(null);
+        tasks = FXCollections.observableArrayList();
 
-            if (taskName != null && !empty) {
-                task.setText(taskName);
-                setGraphic(hBox);
-            }
-        }
+        tasks.addAll(myTask, myTask2);
+
+        listTask.setItems(tasks);
+        listTask.setCellFactory(CellController -> new CellController());
+
+
     }
 }
