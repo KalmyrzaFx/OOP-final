@@ -14,7 +14,7 @@ public class Const {
     public static final String STUDENT_GENDER = "gender";
 
 
-    public static final String TASKS_ID = "tasks_id";
+    public static final String TASKS_ID = "task_id";
     public static final String TASKS_STUDENT_ID = "student_id";
     public static final String TASKS_DATE = "datecreated";
     public static final String TASKS_DESCRIPTION = "description";

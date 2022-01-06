@@ -6,10 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import sample.DataBase.DatabaseHandler;
 import sample.model.Task;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CellController extends ListCell<Task> {
@@ -36,15 +38,18 @@ public class CellController extends ListCell<Task> {
     private Label dateLabel;
 
     @FXML
-    private ImageView deleteButton;
+    private ImageView trashButton;
 
     private FXMLLoader fxmlLoader;
+
+    private DatabaseHandler databaseHandler;
 
     @FXML
     void initialize() {
 
 
     }
+
 
     @Override
     public void updateItem(Task myTask, boolean empty) {
@@ -70,7 +75,21 @@ public class CellController extends ListCell<Task> {
             dateLabel.setText(myTask.getDatecreated().toString());
             descriptionLabel.setText(myTask.getDescription());
 
-            System.out.println("User Id From  cell controller: " + AddItemController.userId);
+            int taskId = myTask.getTaskId();
+
+            trashButton.setOnMouseClicked(event -> {
+                databaseHandler = new DatabaseHandler();
+                try {
+                    databaseHandler.deleteTask(AddItemController.userId, taskId);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                getListView().getItems().remove(getItem());
+
+            });
 
             setText(null);
             setGraphic(rootAnchorPane);

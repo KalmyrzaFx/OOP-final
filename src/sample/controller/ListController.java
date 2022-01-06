@@ -9,8 +9,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import sample.DataBase.DatabaseHandler;
 import sample.model.Task;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -30,25 +33,27 @@ public class ListController {
 
     private  ObservableList<Task> tasks;
 
+    private DatabaseHandler databaseHandler;
+
     @FXML
-    void initialize() {
-
-        System.out.println("User Id from cell controller: " + AddItemController.userId);
-
-        Task myTask = new Task();
-        myTask.setTask("Clean Car");
-        myTask.setDescription("Have to clean");
-        myTask.setDatecreated(Timestamp.valueOf(LocalDateTime.now()));
-
-        Task myTask2 = new Task();
-        myTask2.setTask("Clean House");
-        myTask2.setDescription("Have to clean it too");
-        myTask2.setDatecreated(Timestamp.valueOf(LocalDateTime.now()));
-
+    void initialize() throws SQLException {
 
         tasks = FXCollections.observableArrayList();
 
-        tasks.addAll(myTask, myTask2);
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ResultSet resultSet = databaseHandler.getTaskByUser(AddItemController.userId);
+
+        while (resultSet.next()) {
+            Task task = new Task();
+            task.setTaskId(resultSet.getInt("task_id"));
+            task.setTask(resultSet.getString("task"));
+            task.setDatecreated(resultSet.getTimestamp("datecreated"));
+            task.setDescription(resultSet.getString("description"));
+
+            tasks.addAll(task);
+
+            //System.out.println("User tasks: " + resultSet.getString("task"));
+        }
 
         listTask.setItems(tasks);
         listTask.setCellFactory(CellController -> new CellController());

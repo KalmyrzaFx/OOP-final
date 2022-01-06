@@ -19,12 +19,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
 
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        ResultSet resultSet = databaseHandler.getTaskByUser(3);
-
-        while (resultSet.next()) {
-            System.out.println("User tasks: " + resultSet.getString("task"));
-        }
 
     }
 

@@ -7,6 +7,7 @@ public class Task {
 
 
     private int userId;
+    private int taskId;
     private Timestamp datecreated;
     private String description;
     private String task;
@@ -50,5 +51,13 @@ public class Task {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 }
