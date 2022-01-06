@@ -72,9 +72,6 @@ public class AddItemController {
 
                 AddItemController.userId = getUserId();
 
-                //AddItemFormController addItemFormController = new AddItemFormController();
-                //addItemFormController.setUserId(getUserId());
-
                 FadeTransition rootTransition = new FadeTransition(Duration.millis(2000), formPane);
                 rootTransition.setFromValue(0f);
                 rootTransition.setToValue(1f);

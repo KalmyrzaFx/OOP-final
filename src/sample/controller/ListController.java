@@ -52,8 +52,6 @@ public class ListController {
             task.setDescription(resultSet.getString("description"));
 
             tasks.addAll(task);
-
-            //System.out.println("User tasks: " + resultSet.getString("task"));
         }
 
         listTask.setItems(tasks);
@@ -65,14 +63,14 @@ public class ListController {
 
     }
 
+
+
     public void addNewTask() {
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
         if (!listTaskField.getText().equals("")
                 || !listDescriptionField.getText().equals("")) {
             Task myNewTask = new Task();
-
-
 
             Calendar calendar = Calendar.getInstance();
 
@@ -95,11 +93,7 @@ public class ListController {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
-
         }
-
-
     }
 
 }

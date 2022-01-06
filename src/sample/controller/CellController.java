@@ -2,16 +2,20 @@ package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import sample.DataBase.DatabaseHandler;
 import sample.model.Task;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class CellController extends ListCell<Task> {
@@ -76,6 +80,7 @@ public class CellController extends ListCell<Task> {
             descriptionLabel.setText(myTask.getDescription());
 
             int taskId = myTask.getTaskId();
+
 
             trashButton.setOnMouseClicked(event -> {
                 databaseHandler = new DatabaseHandler();
