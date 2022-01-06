@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 public class ListController {
 
@@ -58,6 +59,47 @@ public class ListController {
         listTask.setItems(tasks);
         listTask.setCellFactory(CellController -> new CellController());
 
+        listSaveTaskButton.setOnAction(event -> {
+            addNewTask();
+        });
 
     }
+
+    public void addNewTask() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        if (!listTaskField.getText().equals("")
+                || !listDescriptionField.getText().equals("")) {
+            Task myNewTask = new Task();
+
+
+
+            Calendar calendar = Calendar.getInstance();
+
+            java.sql.Timestamp timestamp =
+                    new java.sql.Timestamp(calendar.getTimeInMillis());
+
+
+            myNewTask.setUserId(AddItemController.userId);
+            myNewTask.setTask(listTaskField.getText().trim());
+            myNewTask.setDescription(listDescriptionField.getText().trim());
+            myNewTask.setDatecreated(timestamp);
+
+            databaseHandler.insertTask(myNewTask);
+
+            listTaskField.setText("");
+            listDescriptionField.setText("");
+
+            try {
+                initialize();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+
+    }
+
 }
