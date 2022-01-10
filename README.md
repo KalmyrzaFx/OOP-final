@@ -1,31 +1,29 @@
 # OOP final group project
 
-Contributors: @KalmyrzaFx, @Tilek 
+**Project Name:** ToDo App 
 
-## Description
+**Feedbacks from our friends:** 
 
-There is a ball which bouncing and can broke the bricks<br/>
-To bounce the ball itself used the timeline operator and its traectory with x,y<br/>
-
-And there are classes to create bricks and <br/>
-check collision with bricks and change the traectory after that<br/>
-and some other features
-
-## Some screenshots 
-
-![Снимок экрана (46)]()
-<br/>
-<br/>
-<br/>
-![Снимок экрана (47)]()
-<br/>
-<br/>
-<br/>
-
-![Снимок экрана (48)]()
+**YouTube presentation:**
 
 
-<br/>
-Day night 
+## Team:
+[Kalmyrza Zholchubekov](https://github.com/KalmyrzaFx)  
+[Tilek Kulanbekov](https://github.com/TilekKulanbekov)
+
+## Description:  
+This is our final OOP project, which we made by 
+_JavaFx, SceneBuilder and PostgreSql_ programs.  
+Where users can signup, login, create and delete their tasks.  
+All that tasks will be saved in psql database and deleted if needed.
+
+## How to run:
+- First download or clone files
+- Open sql file in Postgre
+- Rewrite db configurations in config class
+
+## Screenshots
+
+
 
 
