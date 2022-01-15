@@ -2,8 +2,6 @@
 
 **Project Name:** ToDo App 
 
-**Feedbacks from our friends:** 
-
 **YouTube presentation:** [https://www.youtube.com/watch?v=fZ_QD4l2weE](https://www.youtube.com/watch?v=fZ_QD4l2weE)
 
 
