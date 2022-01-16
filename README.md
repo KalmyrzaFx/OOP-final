@@ -4,6 +4,8 @@
 
 **YouTube presentation:** [https://www.youtube.com/watch?v=fZ_QD4l2weE](https://www.youtube.com/watch?v=fZ_QD4l2weE)
 
+**Link to Feedbacks:** [https://drive.google.com/drive/folders/1wCQDidAA6BtG_N6RwN64kuab8A6x3ThD?usp=sharing](https://drive.google.com/drive/folders/1wCQDidAA6BtG_N6RwN64kuab8A6x3ThD?usp=sharing)
+
 
 ## Team:
 [Kalmyrza Zholchubekov](https://github.com/KalmyrzaFx)  
